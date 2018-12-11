@@ -1,22 +1,36 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { List, Image } from 'semantic-ui-react'
 
-const VideoList = props => {
-    return (
-        <div className='video-list'>
+class VideoList extends Component {
+
+    renderVideo(video) {
+        return (
             <List animated verticalAlign='middle'>
                 <List.Item>
-                    <Image avatar src='https://bit.ly/2RQu1Sv'></Image>
+                    <Image src={video.snippet.thumbnails.default.url}></Image>
                     <List.Content>
-                        <List.Header>Titulo do video</List.Header>
+                        <List.Header>{video.snippet.title}</List.Header>
                     </List.Content>
                 </List.Item>
             </List>
-            <p>{JSON.stringify(props)}</p>
-        </div>
-    )
+        )
+
+    }
+    render() {
+        return (
+            <div className='video-list'>
+               {
+                   this.props.videos.map(video => {
+                       console.log("meu video", video)
+                       return this.renderVideo(video)
+                   })
+               }
+            </div>
+        )
+    }
 }
+
 
 const mapStateToProps = (state) => {
     return {
