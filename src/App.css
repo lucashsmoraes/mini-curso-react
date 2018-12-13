@@ -8,12 +8,12 @@
 
 .search-bar {
   grid-area: search-bar;
-  background: rebeccapurple;
+  background: rgb(181, 180, 182);
 }
 
 .video-player {
   grid-area: video-player;
-  background: blue;
+  background: #ffffff;
 }
 
 .video-list {

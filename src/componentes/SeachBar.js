@@ -1,12 +1,16 @@
 import React, { Component } from 'react'
 import { Segment, Input } from 'semantic-ui-react'
 import {connect} from 'react-redux'
-import { dispatch } from 'rxjs/internal/observable/range';
-import {busca} from '../store/reducers/busca';
 import {buscaVideo} from '../store/actions/busca-video'
 
 
 class SearchBar extends Component {
+    constructor(props){
+        super(props)
+
+        //on load
+        this.props.buscaVideo('xumes Udemy')
+    }
 
     pesquisaTermo = e => {
         const termo = e.target.value
